@@ -40,6 +40,10 @@ class dmxnet {
       }
     } else {
       // ToDo: Set Log Level
+      log = new LoggingBase({
+        name: 'dmxnet',
+        console: false
+      });
     }
     // Log started information
     log.log('started with options ' + JSON.stringify(options));
