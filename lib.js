@@ -6,7 +6,9 @@ var jspack = require('jspack').jspack;
 const os = require('os');
 const Netmask = require('netmask').Netmask;
 // Require Logging
-const LoggingBase = require('@hibas123/nodelogging').LoggingBase;
+const { LoggingBase } = require('@hibas123/nodelogging');
+const { LoggingTypes } = require('@hibas123/logging');
+
 // Init Logger
 const log = new LoggingBase({
   name: 'dmxnet',
