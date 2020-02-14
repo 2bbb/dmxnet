@@ -35,15 +35,14 @@ class dmxnet {
     // Set log levels
     if (this.verbose > 0) {
       // ToDo: Set Log Level
+      log.logLevel = LoggingTypes.Debug;
       if (this.verbose > 1) {
         // ToDo: Set Log Level Debug
+        log.logLevel = LoggingTypes.Log;
       }
     } else {
       // ToDo: Set Log Level
-      log = new LoggingBase({
-        name: 'dmxnet',
-        console: false
-      });
+      log.logLevel = LoggingTypes.Warning;
     }
     // Log started information
     log.log('started with options ' + JSON.stringify(options));
