@@ -6,13 +6,15 @@ var jspack = require('jspack').jspack;
 const os = require('os');
 const Netmask = require('netmask').Netmask;
 // Require Logging
-const { LoggingBase } = require('@hibas123/nodelogging');
-const { LoggingTypes } = require('@hibas123/logging');
+// const { LoggingBase } = require('@hibas123/nodelogging');
+// const { LoggingTypes } = require('@hibas123/logging');
 
 // Init Logger
-const log = new LoggingBase({
-  name: 'dmxnet',
-});
+// const log = new LoggingBase({
+//   name: 'dmxnet',
+// });
+
+const log = console;
 
 // ArtDMX Header for jspack
 var ArtDmxHeaderFormat = '!7sBHHBBBBH';
@@ -35,17 +37,17 @@ class dmxnet {
     this.lName = options.lName ||
       'dmxnet - OpenSource ArtNet Transceiver'; // Longname
     // Set log levels
-    if (this.verbose > 0) {
-      // ToDo: Set Log Level
-      log.logLevel = LoggingTypes.Debug;
-      if (this.verbose > 1) {
-        // ToDo: Set Log Level Debug
-        log.logLevel = LoggingTypes.Log;
-      }
-    } else {
-      // ToDo: Set Log Level
-      log.logLevel = LoggingTypes.Warning;
-    }
+    // if (this.verbose > 0) {
+    //   // ToDo: Set Log Level
+    //   log.logLevel = LoggingTypes.Debug;
+    //   if (this.verbose > 1) {
+    //     // ToDo: Set Log Level Debug
+    //     log.logLevel = LoggingTypes.Log;
+    //   }
+    // } else {
+    //   // ToDo: Set Log Level
+    //   log.logLevel = LoggingTypes.Warning;
+    // }
     // Log started information
     log.log('started with options ' + JSON.stringify(options));
 
