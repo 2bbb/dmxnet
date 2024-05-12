@@ -417,7 +417,7 @@ class sender {
   /**
    * Transmits the current values
    */
-  transmit() {
+  async transmit() {
     // Only transmit if socket is ready
     if (this.socket_ready) {
       if (this.ArtDmxSeq > 255) {
@@ -437,11 +437,13 @@ class sender {
       this.parent.logger.debug('Packet content: ' + udppacket.toString('hex'));
       // Send UDP
       var client = this.socket;
-      client.send(udppacket, 0, udppacket.length, this.port, this.ip,
-        (err) => {
-          if (err) this.parent.handleError(err);
-          this.parent.logger.silly('ArtDMX frame sent to ' + this.ip + ':' + this.port);
-        });
+      try {
+        await client.send(udppacket, 0, udppacket.length, this.port, this.ip);
+        this.parent.logger.silly('ArtDMX frame sent to ' + this.ip + ':' + this.port);
+      } catch(err) {
+        console.error(err.toString());
+        throw err;
+      }
     }
   }
 
